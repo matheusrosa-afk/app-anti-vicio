@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: oklch(0.98 0 0);
+  --color-foreground: oklch(0.15 0 0);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.15 0 0);
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.15 0 0);
+  --color-primary: oklch(0.42 0.19 264);
+  --color-primary-foreground: oklch(0.98 0 0);
+  --color-secondary: oklch(0.96 0 0);
+  --color-secondary-foreground: oklch(0.15 0 0);
+  --color-muted: oklch(0.96 0 0);
+  --color-muted-foreground: oklch(0.45 0 0);
+  --color-accent: oklch(0.96 0 0);
+  --color-accent-foreground: oklch(0.15 0 0);
+  --color-destructive: oklch(0.58 0.23 29);
+  --color-destructive-foreground: oklch(0.98 0 0);
+  --color-border: oklch(0.90 0 0);
+  --color-input: oklch(0.90 0 0);
+  --color-ring: oklch(0.42 0.19 264);
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme inline {
+    --color-background: oklch(0.15 0 0);
+    --color-foreground: oklch(0.98 0 0);
+    --color-card: oklch(0.15 0 0);
+    --color-card-foreground: oklch(0.98 0 0);
+    --color-popover: oklch(0.15 0 0);
+    --color-popover-foreground: oklch(0.98 0 0);
+    --color-primary: oklch(0.70 0.19 264);
+    --color-primary-foreground: oklch(0.15 0 0);
+    --color-secondary: oklch(0.20 0 0);
+    --color-secondary-foreground: oklch(0.98 0 0);
+    --color-muted: oklch(0.20 0 0);
+    --color-muted-foreground: oklch(0.65 0 0);
+    --color-accent: oklch(0.20 0 0);
+    --color-accent-foreground: oklch(0.98 0 0);
+    --color-destructive: oklch(0.62 0.25 29);
+    --color-destructive-foreground: oklch(0.98 0 0);
+    --color-border: oklch(0.20 0 0);
+    --color-input: oklch(0.20 0 0);
+    --color-ring: oklch(0.70 0.19 264);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animações para celebração */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.4s ease-out;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.5s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out 0.2s both;
+}
