@@ -28,7 +28,8 @@ import {
   ThumbsUp,
   MessageCircle,
   Award,
-  Send
+  Send,
+  UserPlus
 } from "lucide-react";
 
 // Tipos para posts e interações
@@ -464,7 +465,7 @@ export default function Home() {
             {isRegistering ? "Criar Conta" : "Entrar"}
           </button>
 
-          <div className="text-center">
+          <div className="text-center mb-6">
             <button
               onClick={() => setIsRegistering(!isRegistering)}
               className="text-blue-300 hover:text-white transition-colors text-sm"
@@ -473,8 +474,25 @@ export default function Home() {
             </button>
           </div>
 
+          {/* Botão de Nova Inscrição em destaque */}
+          <div className="pt-6 border-t border-white/10">
+            <button
+              onClick={() => {
+                setIsRegistering(true);
+                setUserName("");
+                setEmail("");
+                setPassword("");
+              }}
+              className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-bold rounded-xl hover:shadow-2xl transition-all flex items-center justify-center gap-3 mb-4"
+            >
+              <UserPlus className="w-6 h-6" />
+              <span>Nova Inscrição - Comece Agora!</span>
+            </button>
+            <p className="text-blue-200 text-sm text-center mb-4">Primeira vez aqui? Crie sua conta gratuitamente</p>
+          </div>
+
           {!isRegistering && (
-            <div className="mt-6 pt-6 border-t border-white/10">
+            <div className="pt-4 border-t border-white/10">
               <p className="text-blue-200 text-sm text-center mb-4">Por que se cadastrar?</p>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
@@ -1085,7 +1103,7 @@ export default function Home() {
     );
   }
 
-  // Challenge Screen - Simplificado para não estourar o limite
+  // Challenge Screen
   if (currentScreen === "challenge") {
     const isCompleted = completedDays.includes(currentDay);
 
